@@ -1,0 +1,8 @@
+.DS_Store
+.taste-skill/
+scrollcraft/
+lab/
+node_modules/
+package.json
+package-lock.json
+*.log

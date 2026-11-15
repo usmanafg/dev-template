@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Dev Template · Roblox Developer Portfolio</title>
+  <meta
+    name="description"
+    content="Portfolio template for Roblox developers and systems engineers. Showcase shipped experiences, peak CCU, Luau architecture, and open-source tools."
+  >
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  >
+  <link
+    rel="icon"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23181614'/%3E%3Crect x='7' y='7' width='8' height='8' rx='2' fill='%230a6436'/%3E%3Crect x='17' y='17' width='8' height='8' rx='2' fill='%23f3efed'/%3E%3C/svg%3E"
+  >
+  <link rel="stylesheet" href="scrollcraft.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <span data-sc-progress aria-hidden="true"></span>
+
+  <header class="site-header">
+    <nav class="page-shell nav-bar" aria-label="Primary navigation">
+      <a href="#" class="brand-mark" id="nav-handle">Dev Template</a>
+      <div class="nav-links" id="nav-links">
+        <a href="#about">About</a>
+        <a href="#work">Work</a>
+        <a href="#showcase">Systems</a>
+        <a href="#stack">Stack</a>
+        <a href="#contact" class="nav-action">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section id="hero" class="hero-band" data-sc-act="flow" aria-labelledby="hero-title">
+      <div class="page-shell hero-grid">
+        <div class="hero-copy" data-sc-in data-sc-stagger="50">
+          <h1 class="hero-title" id="hero-title">
+            Systems and worlds at Roblox scale.
+          </h1>
+          <p class="hero-summary" id="hero-summary">
+            I build high-concurrency Roblox experiences in Luau and developer tooling in TypeScript, Swift, and Rust. Focused on server-authoritative gameplay, compressed replication, and clean production architecture.
+          </p>
+          <div class="hero-actions">
+            <a href="#work" class="btn-primary" id="hero-primary-cta" data-sc-magnet="0.2">Explore shipped work</a>
+            <a
+              href="mailto:hello@devtemplate.dev?subject=Roblox%20Development%20Inquiry"
+              class="text-link"
+              id="hero-secondary-cta"
+            >hello@devtemplate.dev</a>
+          </div>
+          <div class="hero-tracks" id="hero-tracks">
+            <a href="#work" class="track-pill">
+              <span class="track-name">Roblox Worlds</span>
+              <span class="track-meta tabular">Luau engines at 45K CCU</span>
+            </a>
+            <a href="#showcase" class="track-pill">
+              <span class="track-name">Web &amp; Native</span>
+              <span class="track-meta">TypeScript, Electron, Metal</span>
+            </a>
+          </div>
+        </div>
+
+        <aside class="telemetry-panel" id="hero-telemetry" data-ui aria-label="Interactive server loop and packet layout">
+          <div class="telemetry-top">
+            <span class="telemetry-heading" id="telemetry-title">60 Hz Server Loop &amp; Packet Layout</span>
+            <span class="telemetry-status tabular" id="telemetry-status">
+              <span class="status-dot" aria-hidden="true"></span>
+              Nominal · 3.80 / 16.67 ms
+            </span>
+          </div>
+
+          <div class="budget-block">
+            <div class="budget-meta">
+              <span>Server frame budget</span>
+              <span class="tabular" id="budget-summary">3.80 ms used · 12.87 ms headroom</span>
+            </div>
+            <div class="budget-track" id="budget-track" aria-hidden="true">
+              <span class="budget-seg budget-seg-sim" style="flex-grow: 21"></span>
+              <span class="budget-seg budget-seg-grid" style="flex-grow: 9"></span>
+              <span class="budget-seg budget-seg-pack" style="flex-grow: 8"></span>
+              <span class="budget-seg budget-seg-idle" style="flex-grow: 129"></span>
+            </div>
+            <div class="budget-phases tabular" id="budget-phases">
+              <span>Simulation 2.1 ms</span>
+              <span>Spatial Grid 0.9 ms</span>
+              <span>Buffer Pack 0.8 ms</span>
+            </div>
+          </div>
+
+          <div class="packet-block">
+            <div class="packet-meta">
+              <span>Unreliable snapshot schema</span>
+              <span class="tabular" id="packet-total">14 B / entity (76% smaller vs Lua table)</span>
+            </div>
+            <div class="packet-slots" id="packet-slots" role="group" aria-label="Snapshot packet fields">
+              <button type="button" class="packet-slot is-active" data-field-index="0" aria-pressed="true" style="flex-grow: 1">
+                <span class="slot-name">id</span>
+                <span class="slot-bytes tabular">1 B</span>
+              </button>
+              <button type="button" class="packet-slot" data-field-index="1" aria-pressed="false" style="flex-grow: 6">
+                <span class="slot-name">posQ</span>
+                <span class="slot-bytes tabular">6 B</span>
+              </button>
+              <button type="button" class="packet-slot" data-field-index="2" aria-pressed="false" style="flex-grow: 2">
+                <span class="slot-name">yaw</span>
+                <span class="slot-bytes tabular">2 B</span>
+              </button>
+              <button type="button" class="packet-slot" data-field-index="3" aria-pressed="false" style="flex-grow: 1">
+                <span class="slot-name">flg</span>
+                <span class="slot-bytes tabular">1 B</span>
+              </button>
+              <button type="button" class="packet-slot" data-field-index="4" aria-pressed="false" style="flex-grow: 2">
+                <span class="slot-name">hp</span>
+                <span class="slot-bytes tabular">2 B</span>
+              </button>
+              <button type="button" class="packet-slot" data-field-index="5" aria-pressed="false" style="flex-grow: 2">
+                <span class="slot-name">crc</span>
+                <span class="slot-bytes tabular">2 B</span>
+              </button>
+            </div>
+            <div class="packet-detail" id="packet-detail" aria-live="polite">
+              <div class="packet-detail-head">
+                <span class="packet-field-title" id="packet-field-title">entityId</span>
+                <span class="packet-field-type"><code id="packet-field-code">u8 · 1 byte</code></span>
+              </div>
+              <p class="packet-field-note" id="packet-field-note">
+                Active shard unit slot index (0-255)
+              </p>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="about" class="section-band" data-sc-act="flow" aria-labelledby="about-heading">
+      <div class="page-shell about-grid">
+        <div class="about-sidebar" data-sc-in data-sc-stagger="60">
+          <h2 class="section-heading" id="about-heading">Background &amp; Stack</h2>
+          <dl class="facts-list" id="about-facts">
+            <div class="fact-row">
+              <dt>Started in Luau</dt>
+              <dd>2020 · Roblox Studio</dd>
+            </div>
+            <div class="fact-row">
+              <dt>Web &amp; Native</dt>
+              <dd>2024 · TypeScript &amp; Swift</dd>
+            </div>
+            <div class="fact-row">
+              <dt>Flagship Scale</dt>
+              <dd>180M+ Visits · 45K CCU</dd>
+            </div>
+            <div class="fact-row">
+              <dt>Architecture</dt>
+              <dd>Server Authority &amp; ECS</dd>
+            </div>
+          </dl>
+
+          <div class="standards-card" id="about-standards" data-ui>
+            <h3 class="standards-title" id="standards-title">Production Guarantees</h3>
+            <dl class="standards-list" id="standards-list">
+              <div class="standard-row">
+                <dt>Type Safety</dt>
+                <dd><code>--!strict</code> · luau-lsp checked</dd>
+              </div>
+              <div class="standard-row">
+                <dt>Heartbeat</dt>
+                <dd>0 Heap Allocs in combat tick</dd>
+              </div>
+              <div class="standard-row">
+                <dt>Data Safety</dt>
+                <dd>Session-locked UpdateAsync</dd>
+              </div>
+              <div class="standard-row">
+                <dt>Deployment</dt>
+                <dd>Rojo CI + Automated Specs</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+
+        <div class="about-letter" id="about-paragraphs" data-sc-in data-sc-stagger="60">
+          <p>
+            I started programming by scripting combat, round loops, and economy systems on Roblox in Luau. What began as solo prototypes expanded into live-service engineering while building Citadel Defense and external matchmaking infrastructure.
+          </p>
+          <p>
+            Operating an experience at <span class="marker-highlight">45,000 concurrent players</span> requires treating Luau like a strict systems language: packing network payloads into binary buffers, isolating client prediction from server authority, and keeping frame times predictable on low-end mobile devices.
+          </p>
+          <p>
+            Beyond Studio, I build web telemetry dashboards and native desktop tools in TypeScript, React, Electron, and Swift. Those utilities support the same game loop: ranked queue routing in Bun and Hono, live place analytics in Next.js, and GPU-accelerated desktop previews.
+          </p>
+          <p>
+            Every project in this portfolio template ships with deterministic state boundaries, strict type checking, and clean source code designed to outlast a single update cycle.
+          </p>
+          <div class="letter-signoff">
+            <span class="signoff-name" id="signoff-name">Dev Template</span>
+            <span class="signoff-role" id="signoff-role">Roblox Systems Developer &amp; Software Engineer</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="stats" class="section-surface stats-band" data-sc-act="pin" data-sc-span="1.6" aria-labelledby="stats-heading">
+      <div data-sc-stage class="stats-stage">
+        <div class="page-shell stats-grid" data-sc-cue="0 1 0 0" data-sc-rise="0">
+          <div class="stats-column">
+            <h2 class="section-heading" id="stats-heading">Platform Impact</h2>
+            <dl class="stats-list" id="stats-list">
+              <div class="stat-row">
+                <dt class="stat-figure tabular"><span data-sc-count="0 180" data-sc-count-at="0 0.65">180</span>M+</dt>
+                <dd class="stat-desc">Cumulative visits across shipped Roblox experiences and live-ops events.</dd>
+              </div>
+              <div class="stat-row">
+                <dt class="stat-figure tabular"><span data-sc-count="0 45,000" data-sc-count-at="0 0.65">45,000</span></dt>
+                <dd class="stat-desc">Peak concurrent players sustained across synchronized global shards.</dd>
+              </div>
+              <div class="stat-row">
+                <dt class="stat-figure tabular"><span data-sc-count="0 1,400" data-sc-count-at="0 0.65">1,400</span>+</dt>
+                <dd class="stat-desc">GitHub stars across open-source Studio plugins, web tools, and CLI bridges.</dd>
+              </div>
+              <div class="stat-row">
+                <dt class="stat-figure tabular"><span data-sc-count="0 60" data-sc-count-at="0 0.65">60</span> Hz</dt>
+                <dd class="stat-desc">Deterministic server simulation loop paired with compressed binary snapshots.</dd>
+              </div>
+            </dl>
+          </div>
+
+          <div class="stats-visual">
+            <div class="benchmark-panel" id="stats-chart" data-ui>
+              <div class="benchmark-header">
+                <h3 class="benchmark-title" id="benchmarks-title">Per-Server Egress @ 50 Players (60 Hz)</h3>
+                <p class="benchmark-sub" id="benchmarks-sub">
+                  Measured replication bandwidth from load tests comparing Lua tables vs binary buffers.
+                </p>
+              </div>
+              <div class="benchmark-bars" id="benchmark-bars" data-sc-reveal="right" data-sc-reveal-at="0.02 0.94">
+                <div class="benchmark-row">
+                  <div class="benchmark-row-head">
+                    <span class="benchmark-name">Nested Lua Table Remote</span>
+                    <span class="benchmark-value tabular">169.9 KB/s</span>
+                  </div>
+                  <div class="benchmark-track">
+                    <div class="benchmark-fill" style="width: 100%"></div>
+                  </div>
+                  <span class="benchmark-meta tabular">58 B / entity</span>
+                </div>
+
+                <div class="benchmark-row">
+                  <div class="benchmark-row-head">
+                    <span class="benchmark-name">Quantized Delta Table</span>
+                    <span class="benchmark-value tabular">87.9 KB/s</span>
+                  </div>
+                  <div class="benchmark-track">
+                    <div class="benchmark-fill" style="width: 52%"></div>
+                  </div>
+                  <span class="benchmark-meta tabular">30 B / entity</span>
+                </div>
+
+                <div class="benchmark-row is-accent">
+                  <div class="benchmark-row-head">
+                    <span class="benchmark-name">Packed Binary Buffer</span>
+                    <span class="benchmark-value tabular">41.0 KB/s</span>
+                  </div>
+                  <div class="benchmark-track">
+                    <div class="benchmark-fill" style="width: 24%"></div>
+                  </div>
+                  <span class="benchmark-meta tabular">14 B / entity</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="work" class="section-band" data-sc-act="flow" aria-labelledby="work-heading">
+      <div class="page-shell">
+        <div class="work-header" data-sc-in data-sc-stagger="50">
+          <div>
+            <h2 class="section-heading" id="work-heading">Shipped Work</h2>
+            <p class="section-lead" id="work-lead">
+              Hover or select any row to inspect the release architecture and calculate network replication bandwidth at scale.
+            </p>
+          </div>
+          <div class="filter-group" role="tablist" aria-label="Filter projects by platform">
+            <button type="button" class="filter-btn is-active" data-filter="all">All</button>
+            <button type="button" class="filter-btn" data-filter="roblox">Roblox</button>
+            <button type="button" class="filter-btn" data-filter="web">Web</button>
+            <button type="button" class="filter-btn" data-filter="native">Native</button>
+          </div>
+        </div>
+
+        <div class="work-grid">
+          <div class="ledger-column" id="ledger-list" role="region" aria-label="Project list">
+            <button type="button" class="ledger-row is-selected" data-project-id="citadel-defense" data-category="roblox">
+              <span class="ledger-name">Citadel Defense</span>
+              <span class="ledger-kind">Lead Systems Engineer · Luau, Buffers</span>
+              <span class="ledger-year tabular">2024 - Present</span>
+            </button>
+            <button type="button" class="ledger-row" data-project-id="ropulse" data-category="web">
+              <span class="ledger-name">RoPulse Telemetry</span>
+              <span class="ledger-kind">Creator · Next.js, Postgres</span>
+              <span class="ledger-year tabular">2025 - Present</span>
+            </button>
+            <button type="button" class="ledger-row" data-project-id="studioframe" data-category="native">
+              <span class="ledger-name">StudioFrame</span>
+              <span class="ledger-kind">Author · Electron, React</span>
+              <span class="ledger-year tabular">2025 - Present</span>
+            </button>
+            <button type="button" class="ledger-row" data-project-id="metal-loom" data-category="native">
+              <span class="ledger-name">Metal Loom</span>
+              <span class="ledger-kind">Author · Swift, Metal</span>
+              <span class="ledger-year tabular">2026 - Present</span>
+            </button>
+            <button type="button" class="ledger-row" data-project-id="queueshard" data-category="roblox">
+              <span class="ledger-name">QueueShard</span>
+              <span class="ledger-kind">Architect · Bun, Hono, MongoDB</span>
+              <span class="ledger-year tabular">2024 - Present</span>
+            </button>
+            <button type="button" class="ledger-row" data-project-id="luaubridge" data-category="web">
+              <span class="ledger-name">LuauBridge</span>
+              <span class="ledger-kind">Author · TypeScript, Rust, Rojo</span>
+              <span class="ledger-year tabular">2025</span>
+            </button>
+          </div>
+
+          <div class="work-preview-column">
+            <article class="preview-card" data-ui aria-live="polite">
+              <div class="preview-meta">
+                <h3 class="preview-title" id="preview-title">Citadel Defense</h3>
+                <span class="preview-metric tabular" id="preview-metric">120M+ Visits · 45K Peak CCU</span>
+              </div>
+              <div class="preview-pipeline" id="preview-pipeline">
+                <span class="pipeline-node">Quantized CFrame</span>
+                <span class="pipeline-arrow" aria-hidden="true">-&gt;</span>
+                <span class="pipeline-node">Server Authority</span>
+                <span class="pipeline-arrow" aria-hidden="true">-&gt;</span>
+                <span class="pipeline-node">14 B Buffer Pack</span>
+              </div>
+              <div class="preview-specs tabular">
+                <span id="preview-budget">3.8 ms server tick</span>
+                <span id="preview-payload">14 B / entity</span>
+              </div>
+              <p class="preview-summary" id="preview-summary">
+                Architected wave simulation, server-authoritative combat, session-locked trading, and live-ops tooling. Replaced legacy table remotes with packed binary buffers to stabilize server heartbeat during peak update traffic.
+              </p>
+              <div class="preview-footer">
+                <span id="preview-stack">Luau, ProfileStore, Buffers</span>
+                <a href="https://www.roblox.com/discover" target="_blank" rel="noreferrer" class="text-link text-link-light" id="preview-link">
+                  Inspect project
+                </a>
+              </div>
+            </article>
+
+            <div class="inspector-widget" id="ccu-inspector" data-ui>
+              <div class="inspector-header">
+                <h3 class="inspector-title">Replication Scale Simulator</h3>
+                <span class="inspector-readout tabular" id="ccu-readout">150,000 CCU</span>
+              </div>
+              <div class="inspector-controls">
+                <label for="ccu-slider">
+                  <span>Simulated concurrent players</span>
+                  <span class="tabular" id="packet-rate-label">14 B / entity @ 60 Hz</span>
+                </label>
+                <input
+                  type="range"
+                  id="ccu-slider"
+                  class="inspector-slider"
+                  min="5000"
+                  max="400000"
+                  step="5000"
+                  value="150000"
+                >
+              </div>
+              <div class="inspector-metrics">
+                <div class="inspector-metric-box">
+                  <span class="inspector-metric-label">Server Shards (50p)</span>
+                  <span class="inspector-metric-value tabular" id="metric-shards">3,000</span>
+                </div>
+                <div class="inspector-metric-box">
+                  <span class="inspector-metric-label">Buffer Throughput</span>
+                  <span class="inspector-metric-value tabular" id="metric-throughput">41.0 KB/s</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="showcase" class="section-surface showcase-band" data-sc-act="pan" data-sc-span="2.4" aria-labelledby="showcase-heading">
+      <div data-sc-stage class="showcase-stage-wrap">
+        <div class="systems-rail" id="showcase-rail" data-sc-pan="0.05">
+          <div class="rail-intro">
+            <h2 class="section-heading" id="showcase-heading">Selected Systems</h2>
+            <p class="rail-intro-copy" id="showcase-intro">
+              Every module below is rendered directly from real protocol math and strict type contracts, replacing decorative media with inspectable engineering specs.
+            </p>
+            <a href="https://github.com/devtemplate" target="_blank" rel="noreferrer" class="text-link text-link-light" id="showcase-link">
+              Browse source on GitHub
+            </a>
+          </div>
+
+          <div class="rail-cards" id="showcase-frames">
+            <article class="system-card" data-sc-tilt="5" data-ui>
+              <div class="system-head">
+                <h3 class="system-title">Buffer Replication</h3>
+                <span class="system-fact tabular">14 B / entity</span>
+              </div>
+              <p class="system-summary">
+                Packs unit IDs, quantized coordinates, yaw, bitflags, health, and frame CRC into one buffer.
+              </p>
+              <div class="system-metrics tabular">
+                <div class="system-metric"><span>Compression</span><strong>76% smaller</strong></div>
+                <div class="system-metric"><span>Frequency</span><strong>60 Hz fixed</strong></div>
+              </div>
+              <pre class="system-code"><code>buffer.writeu8(b, 0, entityId)
+buffer.writei16(b, 1, math.round(x * 20))
+UnreliableRemote:FireAllClients(b)</code></pre>
+            </article>
+
+            <article class="system-card" data-sc-tilt="5" data-ui>
+              <div class="system-head">
+                <h3 class="system-title">Live Telemetry</h3>
+                <span class="system-fact">Sub-second sync</span>
+              </div>
+              <p class="system-summary">
+                Streams server heartbeat percentiles, MemoryStore utilization, and economy deltas over signed webhooks.
+              </p>
+              <div class="system-metrics tabular">
+                <div class="system-metric"><span>Query p95</span><strong>28 ms</strong></div>
+                <div class="system-metric"><span>Retention</span><strong>90 days</strong></div>
+              </div>
+              <pre class="system-code"><code>post('/v1/shards/heartbeat', {
+  ccu, tickP95Ms, heapMb, signature
+})</code></pre>
+            </article>
+
+            <article class="system-card" data-sc-tilt="5" data-ui>
+              <div class="system-head">
+                <h3 class="system-title">Desktop Shell</h3>
+                <span class="system-fact">Rojo Companion</span>
+              </div>
+              <p class="system-summary">
+                Isolated IPC worker tails Studio logs, sourcemap errors, and multi-client playtest flags in one pane.
+              </p>
+              <div class="system-metrics tabular">
+                <div class="system-metric"><span>Idle RAM</span><strong>64 MB</strong></div>
+                <div class="system-metric"><span>Hot Reload</span><strong>&lt; 50 ms</strong></div>
+              </div>
+              <pre class="system-code"><code>rojo sourcemap default.project.json
+  --watch --output sourcemap.json</code></pre>
+            </article>
+
+            <article class="system-card" data-sc-tilt="5" data-ui>
+              <div class="system-head">
+                <h3 class="system-title">Metal Shaders</h3>
+                <span class="system-fact tabular">120 FPS lock</span>
+              </div>
+              <p class="system-summary">
+                Zero-allocation render loop binding CVPixelBuffer textures to ProMotion display links on macOS.
+              </p>
+              <div class="system-metrics tabular">
+                <div class="system-metric"><span>CPU Idle</span><strong>&lt; 1.0%</strong></div>
+                <div class="system-metric"><span>Frame Pace</span><strong>8.33 ms</strong></div>
+              </div>
+              <pre class="system-code"><code>encoder.setComputePipelineState(pso)
+encoder.dispatchThreads(grid, tg)
+commandBuffer.commit()</code></pre>
+            </article>
+          </div>
+
+          <div class="rail-outro">
+            <h3 class="rail-outro-title">Full Stack &amp; Write-Ups</h3>
+            <p class="rail-outro-copy">
+              Inspect the exact Luau packages, backend tooling, and engineering post-mortems behind each shipped title.
+            </p>
+            <a href="#stack" class="text-link text-link-light">Jump to Stack &amp; Notes</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="stack" class="section-band" data-sc-act="flow" aria-labelledby="stack-heading">
+      <div class="page-shell stack-notes-grid">
+        <div class="stack-column" id="stack-column" data-sc-in data-sc-stagger="50">
+          <h2 class="section-heading" id="stack-heading">Stack &amp; Notes</h2>
+
+          <div class="stack-group">
+            <h3 class="group-label">Roblox &amp; Luau</h3>
+            <ul class="two-ended-list">
+              <li class="two-ended-row">
+                <span class="two-ended-left"><span class="dot-swatch" style="background-color:#0a6436"></span>Strict Luau</span>
+                <span class="two-ended-right tabular">Primary · 2020 - Present</span>
+              </li>
+              <li class="two-ended-row">
+                <span class="two-ended-left"><span class="dot-swatch" style="background-color:#2b2622"></span>Rojo &amp; Wally</span>
+                <span class="two-ended-right">Toolchain · Sourcemap &amp; CI</span>
+              </li>
+              <li class="two-ended-row">
+                <span class="two-ended-left"><span class="dot-swatch" style="background-color:#2b2622"></span>ProfileStore &amp; MemoryStore</span>
+                <span class="two-ended-right">Session-locked persistence</span>
+              </li>
+              <li class="two-ended-row">
+                <span class="two-ended-left"><span class="dot-swatch" style="background-color:#0a6436"></span>Zap / Binary Buffers</span>
+                <span class="two-ended-right">Compressed remote replication</span>
+              </li>
+              <li class="two-ended-row">
+                <span class="two-ended-left"><span class="dot-swatch" style="background-color:#59504c"></span>JECS &amp; Parallel Luau</span>
+                <span class="two-ended-right">Actor-isolated simulation</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="stack-group">
+            <h3 class="group-label">Web, Backend &amp; Native</h3>
+            <ul class="two-ended-list">
+              <li class="two-ended-row">
+                <span class="two-ended-left"><span class="dot-swatch" style="background-color:#0a6436"></span>TypeScript &amp; Next.js</span>
+                <span class="two-ended-right tabular">Full-stack · 2024 - Present</span>
+              </li>
+              <li class="two-ended-row">
+                <span class="two-ended-left"><span class="dot-swatch" style="background-color:#2b2622"></span>Bun, Hono &amp; MongoDB</span>
+                <span class="two-ended-right">Matchmaking &amp; API services</span>
+              </li>
+              <li class="two-ended-row">
+                <span class="two-ended-left"><span class="dot-swatch" style="background-color:#59504c"></span>Electron, React &amp; Vite</span>
+                <span class="two-ended-right">Cross-platform desktop UI</span>
+              </li>
+              <li class="two-ended-row">
+                <span class="two-ended-left"><span class="dot-swatch" style="background-color:#2b2622"></span>Swift &amp; Metal</span>
+                <span class="two-ended-right">macOS native rendering</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="notes-column" data-sc-in data-sc-stagger="50">
+          <h3 class="section-heading" id="notes-heading">Engineering Notes</h3>
+          <div class="notes-list" id="notes-list">
+            <article class="note-item is-open">
+              <button type="button" class="note-trigger" aria-expanded="true">
+                <span class="note-title">Scaling Citadel Defense Replication to 45K CCU</span>
+                <span class="note-meta tabular">2026-08 · 4 min</span>
+              </button>
+              <p class="note-body">
+                Why nested Lua tables stall Roblox replication queues above 150 active units, and how packing unit IDs, quantized coordinates, and delta flags into a single <code>UnreliableRemoteEvent</code> buffer cuts per-player bandwidth by 76%.
+              </p>
+            </article>
+
+            <article class="note-item">
+              <button type="button" class="note-trigger" aria-expanded="false">
+                <span class="note-title">Deterministic Ranked Matchmaking with QueueShard</span>
+                <span class="note-meta tabular">2026-05 · 5 min</span>
+              </button>
+              <p class="note-body" hidden>
+                Designing an external HTTP queue service using <code>TeleportService:ReserveServerAsync</code> tokens, sliding ELO tolerances, and HMAC signature validation to block client-side queue spoofing.
+              </p>
+            </article>
+
+            <article class="note-item">
+              <button type="button" class="note-trigger" aria-expanded="false">
+                <span class="note-title">Automating Rojo Sourcemaps and CI Checks in LuauBridge</span>
+                <span class="note-meta tabular">2025-11 · 3 min</span>
+              </button>
+              <p class="note-body" hidden>
+                How LuauBridge keeps strict Luau type definitions, Wally packages, and Roblox Open Cloud place deployments deterministic across pull requests.
+              </p>
+            </article>
+
+            <article class="note-item">
+              <button type="button" class="note-trigger" aria-expanded="false">
+                <span class="note-title">Zero-Allocation Shader Loops with Swift and Metal Loom</span>
+                <span class="note-meta tabular">2026-09 · 4 min</span>
+              </button>
+              <p class="note-body" hidden>
+                Lessons from Metal Loom on sharing <code>CVPixelBuffer</code> textures across multi-monitor display links while keeping idle CPU utilization under 1% on Apple Silicon.
+              </p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section-surface contact-band" data-sc-act="flow" data-sc-spotlight aria-labelledby="contact-heading">
+      <div class="page-shell contact-shell">
+        <div class="contact-grid">
+          <div class="contact-statement-col" data-sc-in>
+            <h2 class="section-heading" id="contact-heading">Get in Touch</h2>
+            <p class="contact-statement" id="contact-statement">
+              Available for lead Roblox architecture, high-concurrency Luau optimization, and custom developer tooling.
+            </p>
+          </div>
+
+          <div class="contact-spec-col" data-sc-in>
+            <div class="availability-card" id="contact-availability" data-ui>
+              <div class="availability-head">
+                <span class="availability-title" id="availability-heading">Engagement Spec</span>
+                <span class="availability-status" id="availability-status">Open for Q1 / Q2 Commissions</span>
+              </div>
+              <dl class="availability-rows" id="availability-rows">
+                <div class="availability-row">
+                  <dt>Primary Focus</dt>
+                  <dd>Server Architecture &amp; Luau Engines</dd>
+                </div>
+                <div class="availability-row">
+                  <dt>Secondary Focus</dt>
+                  <dd>Matchmaking APIs &amp; Studio Tooling</dd>
+                </div>
+                <div class="availability-row">
+                  <dt>Collaboration</dt>
+                  <dd>Rojo Git Flow + Typed Contracts</dd>
+                </div>
+                <div class="availability-row">
+                  <dt>Timezone</dt>
+                  <dd>UTC-5 · US Eastern</dd>
+                </div>
+              </dl>
+            </div>
+          </div>
+
+          <div class="contact-links-col">
+            <p class="contact-prompt" id="contact-prompt">Have a game or system to scale?</p>
+            <div class="contact-stack-links">
+              <a
+                href="mailto:hello@devtemplate.dev?subject=Roblox%20Development%20Inquiry"
+                class="btn-primary"
+                id="contact-email"
+                data-sc-magnet="0.22"
+              >hello@devtemplate.dev</a>
+              <a
+                href="https://github.com/devtemplate"
+                target="_blank"
+                rel="noreferrer"
+                class="text-link text-link-light"
+                id="contact-github"
+              >GitHub @devtemplate</a>
+            </div>
+            <p class="contact-location" id="contact-location">United States · Replies within 24 hours</p>
+          </div>
+        </div>
+
+        <footer class="site-footer">
+          <div class="footer-grid">
+            <span id="footer-left">Dev Template · Roblox Portfolio</span>
+            <div class="footer-links" id="footer-links">
+              <a href="https://github.com/devtemplate" target="_blank" rel="noreferrer">GitHub</a>
+              <a href="https://www.roblox.com/users/profile" target="_blank" rel="noreferrer">Roblox</a>
+              <a href="https://www.youtube.com/@devtemplate" target="_blank" rel="noreferrer">YouTube</a>
+              <a href="https://x.com/devtemplate" target="_blank" rel="noreferrer">X / Twitter</a>
+            </div>
+            <span class="footer-right tabular" id="footer-right">2026 · MIT License</span>
+          </div>
+        </footer>
+      </div>
+    </section>
+  </main>
+
+  <script src="scrollcraft.js"></script>
+  <script src="portfolio.config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
